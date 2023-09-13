@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Existing Customer-POS</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/bootstrap-icons.css" />
+  </head>
+  <body>
+    <!--Start -->
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <h1>POS System</h1>
+        </div>
+        <div class="row g-5">
+          <div class="col-md-12 col-lg-12">
+            <form id="productfrom" class="needs-validation" novalidate="">
+              <div class="row g-2">
+                <div
+                  class="col-md-4 col-lg-2 order-md-first d-flex flex-nowrap border rounded"
+                >
+                  <div class="order-1 p-2">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="invalidCheck2"
+                        required
+                      />
+                      <label class="form-check-label" for="invalidCheck2">
+                        Existing Customer
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8 col-lg-10 border rounded">
+                  <div class="row g-2 p-2">
+                    <div class="col-md-5 col-lg-2">
+                      <label for="clientId" class="form-label">Client Id</label>
+                      <input
+                        type="text"
+                        id="clientId"
+                        class="form-select rounded"
+                        list="clientIdlist"
+                        placeholder="C001"
+                      />
+                      <datalist id="clientIdlist">
+                        <option value="One"></option>
+                        <option value="Two"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="clientName" class="form-label"
+                        >Client Name</label
+                      >
+                      <input
+                        type="text"
+                        id="clientName"
+                        class="form-select rounded"
+                        list="clientnamelist"
+                        placeholder="raja..."
+                      />
+                      <datalist id="clientnamelist">
+                        <option value="jai">jai</option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="invoiceNunmber" class="form-label"
+                        >Date</label
+                      >
+                      <input
+                        type="date"
+                        id="date"
+                        class="form-select rounded"
+                      />
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="billnumber" class="form-label">Bill No</label>
+                      <input
+                        type="text"
+                        id="billnumber"
+                        class="form-select rounded"
+                        disabled
+                      />
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="doseNo" class="form-label">Doctor Name</label>
+                      <input type="text" id="doctorName" class="form-select
+                      rounded" list=doctornamelist" placeholder="raja..." />
+                      <datalist id="doctornamelist">
+                        <option value="jai">jai</option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label for="contactNumber" class="form-label"
+                        >Contact Number</label
+                      >
+                      <div class="input-group">
+                        <input type="text" class="form-control" name="" id="" />
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label for="address" class="form-label">Address</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" name="" id="" />
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label for="doseNo" class="form-label">Remarks</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" name="" id="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-sm-12">
+                  <a
+                    href="#"
+                    class="btn btn-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample"
+                    aria-expanded="false"
+                  >
+                    <i class="bi bi-plus-circle"></i>
+                  </a>
+                  <button
+                    class="btn btn-primary"
+                    type="submit"
+                    onclick="addData();"
+                  >
+                    Add
+                  </button>
+                </div>
+                <div
+                  class="col-lg-10 col-sm-12 border rounded collapse"
+                  id="collapseExample"
+                >
+                  <div class="row g-3 p-2">
+                    <div class="col-md-5 col-lg-2">
+                      <label for="hsnCode" class="form-label">HSN Code</label>
+                      <input
+                        type="text"
+                        id="hsnCode"
+                        class="form-select rounded"
+                        list="hsnCodelist"
+                        placeholder="raja..."
+                        disabled
+                      />
+                      <datalist id="hsnCodelist">
+                        <option value="jai"></option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-3">
+                      <label for="productCode" class="form-label"
+                        >Product Code</label
+                      >
+                      <input
+                        type="text"
+                        id="productCode"
+                        class="form-select rounded"
+                        list="productCodelist"
+                        placeholder="raja..."
+                      />
+                      <datalist id="productCodelist">
+                        <option value="jai"></option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-3">
+                      <label for="productService" class="form-label"
+                        >Product/Service</label
+                      >
+                      <input
+                        type="text"
+                        id="productService"
+                        class="form-select rounded"
+                        list="productServicelist"
+                        placeholder="raja..."
+                      />
+                      <datalist id="productServicelist">
+                        <option value="jai"></option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="batchNo" class="form-label">Batch No</label>
+                      <input
+                        type="text"
+                        id="batchNo"
+                        class="form-select rounded"
+                        list="batchNolist"
+                        placeholder="raja..."
+                      />
+                      <datalist id="batchNolist">
+                        <option value="jai"></option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="uom" class="form-label">UOM (Pack)</label>
+                      <input
+                        type="text"
+                        id="uom"
+                        class="form-select rounded"
+                        list="uomlist"
+                        placeholder="raja..."
+                      />
+                      <datalist id="uomlist">
+                        <option value="jai"></option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="qty" class="form-label">QTY</label>
+                      <input
+                        type="text"
+                        id="qty"
+                        class="form-select rounded"
+                        list="qtylist"
+                        placeholder="90..."
+                      />
+                      <datalist id="qtylist">
+                        <option value="jai">10</option>
+                        <option value="adi">9</option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="expiry" class="form-label">Expiry</label>
+                      <input
+                        type="text"
+                        id="expiry"
+                        class="form-select rounded"
+                        list="expirylist"
+                        placeholder="raja..."
+                      />
+                      <datalist id="expirylist">
+                        <option value="jai"></option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-3">
+                      <label for="gstTax" class="form-label">GST Tax</label>
+                      <input
+                        type="text"
+                        id="gstTax"
+                        class="form-select rounded"
+                        list="gstTaxlist"
+                        placeholder="raja..."
+                      />
+                      <datalist id="gstTaxlist">
+                        <option value="jai"></option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="mfr" class="form-label">MFR</label>
+                      <input
+                        type="text"
+                        id="mfr"
+                        class="form-select rounded"
+                        list="mfrlist"
+                        placeholder="raja..."
+                      />
+                      <datalist id="mfrlist">
+                        <option value="jai"></option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="col-md-5 col-lg-2">
+                      <label for="self" class="form-label">Self No</label>
+                      <input
+                        type="text"
+                        id="self"
+                        class="form-select rounded"
+                        list="selflist"
+                        placeholder="raja..."
+                      />
+                      <datalist id="selflist">
+                        <option value="jai"></option>
+                        <option value="adi"></option>
+                      </datalist>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      <section class="bg-light">
+        <h1 class="mt-5">Product Details</h1>
+        <div class="table-responsive mt-3 p-1" id="no-more-tables">
+          <table id="producttable" class="table table-hover border border-2">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">HSN</th>
+                <th scope="col">Batch No</th>
+                <th scope="col">Pack</th>
+                <th scope="col">Expiry</th>
+                <th scope="col">MRP</th>
+
+                <th scope="col">QTY</th>
+                <th scope="col">GST</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="rows">
+              <tr>
+                <td scope="row" data-title="Serial No">1</td>
+                <td data-title="Product Name">Dm</td>
+                <td data-title="HSN">300490</td>
+                <td data-title="Batch No">ull</td>
+                <td data-title="Pack">1s</td>
+                <td data-title="Expiry">07/24</td>
+                <td data-title="MRP">69</td>
+                <td data-title="QTY">45</td>
+                <td data-title="GST">0%</td>
+                <td data-title="Amount">12%</td>
+                <td data-title="Action">
+                  <button class="btn btn-success">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="bi bi-trash3-fill"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <div class="row g-2">
+          <div class="col-md-12 col-lg-10 border rounded">
+            <div class="row g-2 p-2">
+              <div class="col-md-5 col-lg-2">
+                <label for="billnumber" class="form-label">Discount</label>
+                <input
+                  type="text"
+                  id="billnumber"
+                  class="form-select rounded"
+                />
+              </div>
+
+              <div class="col-md-5 col-lg-2">
+                <label for="doseNo" class="form-label">% / rs</label>
+                <input type="text" id="doctorName" class="form-select rounded"
+                list=doctornamelist" placeholder="raja..." />
+                <datalist id="clientnamelist">
+                  <option value="jai">jai</option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-3">
+                <label for="contactNumber" class="form-label"
+                  >Paid Amount</label
+                >
+                <div class="input-group">
+                  <input type="text" class="form-control" name="" id="" />
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="address" class="form-label">Total Amount</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" name="" id="" />
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="doseNo" class="form-label"
+                  >Additional Charges</label
+                >
+                <div class="input-group">
+                  <input type="text" class="form-control" name="" id="" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-10 col-sm-12 border rounded collapse"
+            id="collapseExample"
+          >
+            <div class="row g-3 p-2">
+              <div class="col-md-5 col-lg-2">
+                <label for="hsnCode" class="form-label">HSN Code</label>
+                <input
+                  type="text"
+                  id="hsnCode"
+                  class="form-select rounded"
+                  list="hsnCodelist"
+                  placeholder="raja..."
+                  disabled
+                />
+                <datalist id="hsnCodelist">
+                  <option value="jai"></option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-5 col-lg-3">
+                <label for="productCode" class="form-label">Product Code</label>
+                <input
+                  type="text"
+                  id="productCode"
+                  class="form-select rounded"
+                  list="productCodelist"
+                  placeholder="raja..."
+                />
+                <datalist id="productCodelist">
+                  <option value="jai"></option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-5 col-lg-3">
+                <label for="productService" class="form-label"
+                  >Product/Service</label
+                >
+                <input
+                  type="text"
+                  id="productService"
+                  class="form-select rounded"
+                  list="productServicelist"
+                  placeholder="raja..."
+                />
+                <datalist id="productServicelist">
+                  <option value="jai"></option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-5 col-lg-2">
+                <label for="batchNo" class="form-label">Batch No</label>
+                <input
+                  type="text"
+                  id="batchNo"
+                  class="form-select rounded"
+                  list="batchNolist"
+                  placeholder="raja..."
+                />
+                <datalist id="batchNolist">
+                  <option value="jai"></option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-5 col-lg-2">
+                <label for="uom" class="form-label">UOM (Pack)</label>
+                <input
+                  type="text"
+                  id="uom"
+                  class="form-select rounded"
+                  list="uomlist"
+                  placeholder="raja..."
+                />
+                <datalist id="uomlist">
+                  <option value="jai"></option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-5 col-lg-2">
+                <label for="qty" class="form-label">QTY</label>
+                <input
+                  type="text"
+                  id="qty"
+                  class="form-select rounded"
+                  list="qtylist"
+                  placeholder="90..."
+                />
+                <datalist id="qtylist">
+                  <option value="jai">10</option>
+                  <option value="adi">9</option>
+                </datalist>
+              </div>
+
+              <div class="col-md-5 col-lg-2">
+                <label for="expiry" class="form-label">Expiry</label>
+                <input
+                  type="text"
+                  id="expiry"
+                  class="form-select rounded"
+                  list="expirylist"
+                  placeholder="raja..."
+                />
+                <datalist id="expirylist">
+                  <option value="jai"></option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-5 col-lg-3">
+                <label for="gstTax" class="form-label">GST Tax</label>
+                <input
+                  type="text"
+                  id="gstTax"
+                  class="form-select rounded"
+                  list="gstTaxlist"
+                  placeholder="raja..."
+                />
+                <datalist id="gstTaxlist">
+                  <option value="jai"></option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-5 col-lg-2">
+                <label for="mfr" class="form-label">MFR</label>
+                <input
+                  type="text"
+                  id="mfr"
+                  class="form-select rounded"
+                  list="mfrlist"
+                  placeholder="raja..."
+                />
+                <datalist id="mfrlist">
+                  <option value="jai"></option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+
+              <div class="col-md-5 col-lg-2">
+                <label for="self" class="form-label">Self No</label>
+                <input
+                  type="text"
+                  id="self"
+                  class="form-select rounded"
+                  list="selflist"
+                  placeholder="raja..."
+                />
+                <datalist id="selflist">
+                  <option value="jai"></option>
+                  <option value="adi"></option>
+                </datalist>
+              </div>
+            </div>
+          </div>
+        <button class="btn btn-success">Reset</button> <button class="btn btn-primary">Submit</button>
+        </div>
+      </section>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">© 2017–2022 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+    <!-- end -->
+    <script src="./js/main.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

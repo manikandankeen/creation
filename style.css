@@ -1,0 +1,25 @@
+@media only screen and (max-width: 800px) {
+  #no-more-tables tbody,
+  #no-more-tables tr,
+  #no-more-tables td {
+    display: block;
+  }
+  #no-more-tables tr {
+    display: absolute;
+  }
+  #no-more-tables th{
+    display: none;
+  }
+  #no-more-tables td {
+    position: relative;
+    padding-left: 50%;
+  }
+  #no-more-tables td:before {
+    content: attr(data-title);
+    position: absolute;
+    top: .5em;
+    left: 1em;
+    padding: 2px;
+    font-weight: bold;
+}
+}
